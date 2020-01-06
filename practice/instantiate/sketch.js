@@ -315,7 +315,7 @@ let sketch3 = function(p) {
     p.text("LOADING...", p.width/2, p.height/2);
 
     let facingMode;
-    if(p.displayHeight > p.displayWidth){
+    if(p.height > p.width){
     	facingMode = {exact: "environment"}
     }else{
     	facingMode = "user"
