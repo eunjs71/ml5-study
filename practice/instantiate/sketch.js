@@ -259,24 +259,38 @@ let sketch3 = function(p) {
 	let poses = [];
 
 	let img_edge;
+	let img_title;
+	let img_leg;
+
+	let vRatio;
+	let screenRatio = 640/800;
 
 	p.preload = function(){
 		img_edge = p.loadImage('edge.png');
+		img_title = p.loadImage('parasite_title.png');
+  		img_leg = p.loadImage('leg.png');
 	}
 
   p.setup = function() {
-    cnv = p.createCanvas(640, 800);
+
+  	video = p.createCapture(p.VIDEO);
+
+    cnv = p.createCanvas(640, 640*video.height/video.width);
     cnv.parent("sketch3")
     p.background(0);
     p.fill(200);
     p.textAlign(p.CENTER, p.CENTER);
     p.text("LOADING...", p.width/2, p.height/2);
 
-    video = p.createCapture(p.VIDEO);
-    	let vHeight = p.height;
-    	let vWidth = video.width / video.height * p.height;
+    
+    video.size(p.width, p.height);
+
+    	//let vHeight = p.height;
+    	//let vWidth = video.width / video.height * p.height;
 	  //video.size(vWidth, p.height);
 	  //video.size(vWidth, vHeight);
+	  //video.size(p.width, p.height);
+	  //vRatio = p.height/video.height;
 
 	  // Create a new poseNet method with a single detection
 	  poseNet = ml5.poseNet(video, modelReady);
@@ -294,12 +308,15 @@ let sketch3 = function(p) {
 	}
 
   p.draw = function() {
-    p.imageMode(p.CENTER);
+    p.imageMode(p.CORNER);
     	//console.log(video.width);
     	//console.log(video.height);
-    	//let vWidth = video.width / video.height * p.height;
-    	let vWidth = video.width;
-	  p.image(video, p.width/2, p.height/2, vWidth, p.height);
+    	
+    	//let vWidth = video.width * vRatio;
+	  
+    	p.image(video, 0, 0, p.width, p.height);
+
+    	
 	  //p.image(video, p.width/2, p.height/2);
 
 	  p.imageMode(p.CENTER);
@@ -311,14 +328,20 @@ let sketch3 = function(p) {
 	  		let rightEye = pose['rightEye'];
 		    //image(rightEyeImage, rightEye.x, rightEye.y, 60, 60);
 		    //let x1 = rightEye.x;
-		    let x1 = rightEye.x - (vWidth-p.width)/2;
+
+		    let x1 = rightEye.x;
 		    let y1 = rightEye.y;
 
 		    let leftEye = pose['leftEye'];
 		    //image(leftEyeImage, leftEye.x, leftEye.y, 60, 60);
 		    //let x2 = leftEye.x;
-		    let x2 = leftEye.x - (vWidth-p.width)/2;
+		    let x2 = leftEye.x;
 		    let y2 = leftEye.y;
+
+
+
+
+
 
 		    let xc = (x1 + x2)/2;
 		    let yc = (y1 + y2)/2;
@@ -344,6 +367,16 @@ let sketch3 = function(p) {
 	    
 	  }
 	  p.imageMode(p.CORNER);
+
+	  if(leg_on){
+	  	p.image(img_leg, 0 + 30, 230 + 30, 98, 43);
+	  }
+
+
+	  if(title_on){
+	  	p.image(img_title, 39 + 30, 180 + 30, 282, 60);
+	  }
+
 	  p.image(img_edge, 0, 0, p.width, p.height);
   };
 };
