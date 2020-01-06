@@ -323,7 +323,7 @@ let sketch3 = function(p) {
   	btn_switch_cam.position(cnv.position().x + p.width/2, cnv.position().y + p.height + 75);
   	btn_switch_cam.style('boader', '1px white');
   	btn_switch_cam.style('background-color', 'black');
-  	btn_switch_cam.mousePressed(cameraSwitch);
+  	btn_switch_cam.mousePressed(switchCamera);
   };
 
 	function switchCamera()
