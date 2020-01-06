@@ -138,23 +138,3 @@ let sketch3 = function(p) {
 let myp5_skch1 = new p5(sketch1);
 let myp5_skch2 = new p5(sketch2);
 let myp5_skch3 = new p5(sketch3);
-
-var constraints = { audio: true, video: { width: 1280, height: 720 } };
-
-navigator.mediaDevices.getUserMedia(constraints)
-    .then(function(stream) {
-        var video = document.querySelector('video');
-        // Older browsers may not have srcObject
-        if ("srcObject" in video) {
-            video.srcObject = stream;
-        } else {
-            // Avoid using this in new browsers, as it is going away.
-            video.src = window.URL.createObjectURL(stream);
-        }
-        video.onloadedmetadata = function(e) {
-            video.play();
-        };
-    })
-    .catch(function(err) {
-        console.log(err.name + ": " + err.message);
-    });
