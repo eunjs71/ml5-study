@@ -325,9 +325,7 @@ let sketch3 = function(p) {
 	    audio: false,
 	    video: {
 	      //facingMode: "user"
-	      facingMode: {
-	        facingMode
-	      }
+	      facingMode: facingMode
 	    }
 	  };
 
