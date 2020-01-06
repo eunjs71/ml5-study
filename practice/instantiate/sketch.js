@@ -89,8 +89,9 @@ let sketch3 = function(p) {
 	  p.imageMode(p.CENTER);
 
 	  if (poses.length > 0) {
-	  	poses.forEach(function(poseElement){
-	  		let pose = poseElement.pose
+	  	console.log(poses.length);
+	  	for(let i=0; i<poses.length; i++){
+	  		let pose = poses[i].pose;
 	  		let rightEye = pose['rightEye'];
 		    //image(rightEyeImage, rightEye.x, rightEye.y, 60, 60);
 		    let x1 = rightEye.x;
@@ -112,20 +113,15 @@ let sketch3 = function(p) {
 		    let r = barSize/10
 
 		    //p.stroke(255, 0, 0);
-
+		    p.push();
 		    p.translate(xc, yc);
 		    p.rotate(theta);
 		    p.fill(0);
 		    p.noStroke();
 		    p.rectMode(p.CENTER);
 		    p.rect(0, 0, distance*r, distance/2.5);
-	  	})
-	    //let pose = poses[0].pose;
-
-	    //let nose = pose['nose'];
-	    //fill(255,0,0);
-	    //ellipse(nose.x, nose.y, 50)
-	    //image(noseImage, nose.x, nose.y, 60, 60);
+		    p.pop();
+	  	}
 
 	    
 
