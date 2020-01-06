@@ -373,7 +373,7 @@ let sketch3 = function(p) {
 	  if(leg_on){
 	  	p.imageMode(p.CORNER);
 	  	let w = p.width * 0.25;
-	  	let h = w * img_title.height / img_title.width;
+	  	let h = w * img_leg.height / img_leg.width;
 	  	p.image(img_leg, 0, p.height*0.85, w, h);
 	  }
 
