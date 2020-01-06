@@ -214,9 +214,14 @@ let sketch2 = function(p) {
 	  	p.image(img_title, 39 + 30, 180 + 30, 282, 60);
 	  }
 
-
-
 	  p.image(img_edge, 30, 30, 360, 300);
+
+	  p.rectMode(p.CORNER);
+	  p.fill(0);
+	  p.noStroke();
+	  p.rect(0, 0, p.width, 30);
+	  p.noFill();
+	  p.rect(0, 0, p.width, p.height, 6);
 
 
   };
