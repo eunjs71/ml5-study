@@ -277,6 +277,18 @@ let sketch3 = function(p) {
 	let vRatio;
 	let screenRatio = 640/800;
 
+	let btn_switch_cam;
+	let switchFlag = false;
+
+	let options = {
+     video: {
+        
+         facingMode: {
+          exact: "user"
+        }
+     }
+   };
+	
 	p.preload = function(){
 		img_edge = p.loadImage('edge.png');
 		img_title = p.loadImage('parasite_title.png');
@@ -285,8 +297,6 @@ let sketch3 = function(p) {
 	}
 
   p.setup = function() {
-
-  	
 
     cnv = p.createCanvas(640, 640*p.displayHeight/p.displayWidth);
 
@@ -299,13 +309,6 @@ let sketch3 = function(p) {
     video = p.createCapture(p.VIDEO);
     video.size(p.width, p.height);
 
-    	//let vHeight = p.height;
-    	//let vWidth = video.width / video.height * p.height;
-	  //video.size(vWidth, p.height);
-	  //video.size(vWidth, vHeight);
-	  //video.size(p.width, p.height);
-	  //vRatio = p.height/video.height;
-
 	  // Create a new poseNet method with a single detection
 	  poseNet = ml5.poseNet(video, modelReady);
 	  // This sets up an event that fills the global variable "poses"
@@ -315,7 +318,46 @@ let sketch3 = function(p) {
 	  });
 	  // Hide the video element, and just show the canvas
 	  video.hide();
+
+	  btn_switch_cam = p.createButton('CAMERA SWITCH');
+  	btn_switch_cam.position(cnv.position().x + p.width/2, cnv.position().y + p.height + 75);
+  	btn_switch_cam.style('boader', '1px white');
+  	btn_switch_cam.style('background-color', 'black');
+  	btn_switch_cam.mousePressed(cameraSwitch);
   };
+
+	function switchCamera()
+	{
+	  switchFlag = !switchFlag;
+	  if(switchFlag==true)
+	  {
+	   capture.remove();
+	   options = {
+	     video: {
+	        
+	         facingMode: {
+	          exact: "environment"
+	        }
+	     }
+	   };
+
+	  }
+	  else
+	  {
+	   capture.remove();
+	   options = {
+	     video: {
+	        
+	         facingMode: {
+	          exact: "user"
+	        }
+	     }
+	   };
+	    
+	  }
+	  capture = createCapture(options);
+	  
+	}
 
 	function modelReady() {
 	  //select('#status').html('Model Loaded');
