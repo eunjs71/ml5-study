@@ -355,7 +355,7 @@ let sketch3 = function(p) {
 	   };
 	    
 	  }
-	  video = createCapture(options);
+	  video = p.createCapture(options);
 	  
 	}
 
