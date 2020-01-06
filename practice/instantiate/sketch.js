@@ -89,41 +89,44 @@ let sketch3 = function(p) {
 	  p.imageMode(p.CENTER);
 
 	  if (poses.length > 0) {
-	    let pose = poses[0].pose;
+	  	poses.foreach(function(pose){
+	  		let rightEye = pose['rightEye'];
+		    //image(rightEyeImage, rightEye.x, rightEye.y, 60, 60);
+		    let x1 = rightEye.x;
+		    let y1 = rightEye.y;
+
+		    let leftEye = pose['leftEye'];
+		    //image(leftEyeImage, leftEye.x, leftEye.y, 60, 60);
+		    let x2 = leftEye.x;
+		    let y2 = leftEye.y;
+
+		    let xc = (x1 + x2)/2;
+		    let yc = (y1 + y2)/2;
+
+		    let theta = p.atan2(y2-y1, x2 - x1);
+		    let distance = p.dist(x1, y1, x2, y2);
+		    let rmin = 1.8;
+		    let rmax = 4;
+
+		    let r = barSize/10
+
+		    //p.stroke(255, 0, 0);
+
+		    p.translate(xc, yc);
+		    p.rotate(theta);
+		    p.fill(0);
+		    p.noStroke();
+		    p.rectMode(p.CENTER);
+		    p.rect(0, 0, distance*r, distance/2.5);
+	  	})
+	    //let pose = poses[0].pose;
 
 	    //let nose = pose['nose'];
 	    //fill(255,0,0);
 	    //ellipse(nose.x, nose.y, 50)
 	    //image(noseImage, nose.x, nose.y, 60, 60);
 
-	    let rightEye = pose['rightEye'];
-	    //image(rightEyeImage, rightEye.x, rightEye.y, 60, 60);
-	    let x1 = rightEye.x;
-	    let y1 = rightEye.y;
-
-	    let leftEye = pose['leftEye'];
-	    //image(leftEyeImage, leftEye.x, leftEye.y, 60, 60);
-	    let x2 = leftEye.x;
-	    let y2 = leftEye.y;
-
-	    let xc = (x1 + x2)/2;
-	    let yc = (y1 + y2)/2;
-
-	    let theta = p.atan2(y2-y1, x2 - x1);
-	    let distance = p.dist(x1, y1, x2, y2);
-	    let rmin = 1.8;
-	    let rmax = 4;
-
-	    let r = barSize/10
-
-	    //p.stroke(255, 0, 0);
-
-	    p.translate(xc, yc);
-	    p.rotate(theta);
-	    p.fill(0);
-	    p.noStroke();
-	    p.rectMode(p.CENTER);
-	    p.rect(0, 0, distance*r, distance/2.5);
+	    
 
 
 
