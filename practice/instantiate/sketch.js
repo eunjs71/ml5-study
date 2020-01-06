@@ -198,7 +198,7 @@ let sketch2 = function(p) {
 		    	let w = distance * 12;
 		    	let h = w * img_happy.height / img_happy.width;
 		    	p.imageMode(p.CENTER);
-	  			p.image(img_happy, 0, -distance*4, w, h);
+	  			p.image(img_happy, 0, -distance*3, w, h);
 	  		}
 
 		    p.pop();
@@ -272,6 +272,7 @@ let sketch3 = function(p) {
 	let img_edge;
 	let img_title;
 	let img_leg;
+	let img_happy;
 
 	let vRatio;
 	let screenRatio = 640/800;
@@ -280,6 +281,7 @@ let sketch3 = function(p) {
 		img_edge = p.loadImage('edge.png');
 		img_title = p.loadImage('parasite_title.png');
   		img_leg = p.loadImage('leg.png');
+  		img_happy = p.loadImage('happy.png');
 	}
 
   p.setup = function() {
@@ -351,10 +353,6 @@ let sketch3 = function(p) {
 		    let y2 = leftEye.y;
 
 
-
-
-
-
 		    let xc = (x1 + x2)/2;
 		    let yc = (y1 + y2)/2;
 
@@ -373,6 +371,14 @@ let sketch3 = function(p) {
 		    p.noStroke();
 		    p.rectMode(p.CENTER);
 		    p.rect(0, 0, distance*r, distance/2.5);
+
+		    if(happy_on && i==0){
+		    	let w = distance * 12;
+		    	let h = w * img_happy.height / img_happy.width;
+		    	p.imageMode(p.CENTER);
+	  			p.image(img_happy, 0, -distance*3, w, h);
+	  		}
+
 		    p.pop();
 	  	}
 
