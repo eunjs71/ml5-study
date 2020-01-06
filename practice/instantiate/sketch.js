@@ -311,7 +311,10 @@ let sketch3 = function(p) {
     let constraints = {
 	    audio: false,
 	    video: {
-	      facingMode: "user"
+	      //facingMode: "user"
+	      facingMode: {
+	        exact: "environment"
+	      }
 	    }
 	  };
 
