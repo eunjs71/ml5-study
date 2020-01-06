@@ -374,7 +374,7 @@ let sketch3 = function(p) {
 	  	p.imageMode(p.CORNER);
 	  	let w = p.width * 0.25;
 	  	let h = w * img_leg.height / img_leg.width;
-	  	p.image(img_leg, 0, p.height*0.85, w, h);
+	  	p.image(img_leg, 0, p.height*0.8, w, h);
 	  }
 
 
@@ -382,7 +382,7 @@ let sketch3 = function(p) {
 	  	p.imageMode(p.CENTER);
 	  	let w = p.width * 0.75;
 	  	let h = w * img_title.height / img_title.width;
-	  	p.image(img_title, p.width*0.5, p.height*0.75, w, h);
+	  	p.image(img_title, p.width*0.5, p.height*0.65, w, h);
 	  }
 
 	  p.imageMode(p.CORNER);
