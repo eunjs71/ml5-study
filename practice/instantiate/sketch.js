@@ -308,7 +308,17 @@ let sketch3 = function(p) {
     p.textAlign(p.CENTER, p.CENTER);
     p.text("LOADING...", p.width/2, p.height/2);
 
-    video = p.createCapture(p.VIDEO);
+    let constraints = {
+	    audio: false,
+	    video: {
+	      facingMode: "user"
+	    }
+	  };
+
+	video = p.createCapture(constraints);
+
+    //video = p.createCapture(p.VIDEO);
+    
     video.size(p.width, p.height);
 
 	  // Create a new poseNet method with a single detection
