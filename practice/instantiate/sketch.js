@@ -221,6 +221,7 @@ let sketch2 = function(p) {
 	  p.noStroke();
 	  p.rect(0, 0, p.width, 30);
 	  p.noFill();
+	  p.stroke(255);
 	  p.rect(0, 0, p.width, p.height, 6);
 
 
