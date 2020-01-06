@@ -258,8 +258,14 @@ let sketch3 = function(p) {
 	let poseNet;
 	let poses = [];
 
+	let img_edge;
+
+	p.preload = function(){
+		img_edge = p.loadImage('edge.png');
+	}
+
   p.setup = function() {
-    cnv = p.createCanvas(640, 480);
+    cnv = p.createCanvas(640, 800);
     cnv.parent("sketch3")
     p.background(0);
     p.fill(200);
@@ -267,7 +273,10 @@ let sketch3 = function(p) {
     p.text("LOADING...", p.width/2, p.height/2);
 
     video = p.createCapture(p.VIDEO);
-	  video.size(p.width, p.height);
+    	let vHeight = p.height;
+    	let vWidth = video.width / video.height * p.height;
+	  video.size(vWidth, p.height);
+	  //video.size(vWidth, vHeight);
 
 	  // Create a new poseNet method with a single detection
 	  poseNet = ml5.poseNet(video, modelReady);
@@ -285,8 +294,13 @@ let sketch3 = function(p) {
 	}
 
   p.draw = function() {
-    p.imageMode(p.CORNER);
-	  p.image(video, 0, 0, p.width, p.height);
+    p.imageMode(p.CENTER);
+    	//console.log(video.width);
+    	//console.log(video.height);
+    	//let vWidth = video.width / video.height * p.height;
+    	let vWidth = video.width;
+	  p.image(video, p.width/2, p.height/2, vWidth, p.height);
+	  //p.image(video, p.width/2, p.height/2);
 
 	  p.imageMode(p.CENTER);
 
@@ -296,12 +310,14 @@ let sketch3 = function(p) {
 	  		let pose = poses[i].pose;
 	  		let rightEye = pose['rightEye'];
 		    //image(rightEyeImage, rightEye.x, rightEye.y, 60, 60);
-		    let x1 = rightEye.x;
+		    //let x1 = rightEye.x;
+		    let x1 = rightEye.x - (vWidth-p.width)/2;
 		    let y1 = rightEye.y;
 
 		    let leftEye = pose['leftEye'];
 		    //image(leftEyeImage, leftEye.x, leftEye.y, 60, 60);
-		    let x2 = leftEye.x;
+		    //let x2 = leftEye.x;
+		    let x2 = leftEye.x - (vWidth-p.width)/2;
 		    let y2 = leftEye.y;
 
 		    let xc = (x1 + x2)/2;
@@ -327,10 +343,12 @@ let sketch3 = function(p) {
 
 	    
 	  }
+	  p.imageMode(CORNER);
+	  p.image(img_edge, 0, 0, p.width, p.height);
   };
 };
 
 
 //let myp5_skch1 = new p5(sketch1);
 let myp5_skch2 = new p5(sketch2);
-//let myp5_skch3 = new p5(sketch3);
+let myp5_skch3 = new p5(sketch3);
