@@ -197,7 +197,7 @@ let sketch2 = function(p) {
 		    if(happy_on && i==0){
 		    	let w = distance * 12;
 		    	let h = w * img_happy.height / img_happy.width;
-	  			p.image(img_happy, 30, 30 - 50, w, h);
+	  			p.image(img_happy, 0, distance*4, w, h);
 	  		}
 
 		    p.pop();
