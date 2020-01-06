@@ -62,6 +62,7 @@ let sketch2 = function(p) {
   	img_edge = p.loadImage('edge.png');
   	img_title = p.loadImage('parasite_title.png');
   	img_leg = p.loadImage('leg.png');
+  	img_happy = p.loadImage('happy.png');
   }
 
 	function imageReady(){
@@ -192,6 +193,13 @@ let sketch2 = function(p) {
 		    p.textAlign(p.CENTER, p.CENTER);
 		    p.textSize(distance/4);
 		    p.text('SAMPLE', 0, 0);
+
+		    if(happy_on && i==0){
+		    	let w = distance * 16;
+		    	let h = w * img_happy.height / img_happy.width;
+	  			p.image(img_happy, xc + 30, yc + 50 + 30, w, h);
+	  		}
+
 		    p.pop();
 	  	}
 	  }
@@ -204,6 +212,8 @@ let sketch2 = function(p) {
 	  if(title_on){
 	  	p.image(img_title, 39 + 30, 180 + 30, 282, 60);
 	  }
+
+
 
 	  p.image(img_edge, 30, 30, 360, 300);
 
