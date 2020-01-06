@@ -331,7 +331,7 @@ let sketch3 = function(p) {
 	  switchFlag = !switchFlag;
 	  if(switchFlag==true)
 	  {
-	   capture.remove();
+	   video.remove();
 	   options = {
 	     video: {
 	        
@@ -344,7 +344,7 @@ let sketch3 = function(p) {
 	  }
 	  else
 	  {
-	   capture.remove();
+	   video.remove();
 	   options = {
 	     video: {
 	        
@@ -355,7 +355,7 @@ let sketch3 = function(p) {
 	   };
 	    
 	  }
-	  capture = createCapture(options);
+	  video = createCapture(options);
 	  
 	}
 
