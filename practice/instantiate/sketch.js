@@ -446,7 +446,7 @@ let sketch3 = function(p) {
 
 	  p.imageMode(p.CORNER);
 	  p.image(img_edge, 0, 0, p.width, p.height);
-
+	  btn_switch_cam.position(cnv.position().x + p.width/2, cnv.position().y + p.height + 75);
 	  
   };
 };
