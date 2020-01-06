@@ -273,16 +273,17 @@ let sketch3 = function(p) {
 
   p.setup = function() {
 
-  	video = p.createCapture(p.VIDEO);
+  	
 
-    cnv = p.createCanvas(640, 640*video.height/video.width);
+    cnv = p.createCanvas(640, 640*p.displayHeight/p.displayWidth);
+
     cnv.parent("sketch3")
     p.background(0);
     p.fill(200);
     p.textAlign(p.CENTER, p.CENTER);
     p.text("LOADING...", p.width/2, p.height/2);
 
-    
+    video = p.createCapture(p.VIDEO);
     video.size(p.width, p.height);
 
     	//let vHeight = p.height;
@@ -322,7 +323,7 @@ let sketch3 = function(p) {
 	  p.imageMode(p.CENTER);
 
 	  if (poses.length > 0) {
-	  	console.log(poses.length);
+	  	//console.log(poses.length);
 	  	for(let i=0; i<poses.length; i++){
 	  		let pose = poses[i].pose;
 	  		let rightEye = pose['rightEye'];
@@ -368,16 +369,22 @@ let sketch3 = function(p) {
 	  }
 	  p.imageMode(p.CORNER);
 
+	  
 	  if(leg_on){
-	  	p.image(img_leg, 0 + 30, 230 + 30, 98, 43);
+	  	p.image(img_leg, 0, p.height*0.85, 98, 43);
 	  }
 
 
 	  if(title_on){
-	  	p.image(img_title, 39 + 30, 180 + 30, 282, 60);
+	  	p.imageMode(p.CENTER);
+	  	let w = p.width * 0.75;
+	  	let h = w * img_title.h / img_title.width;
+	  	p.image(img_title, p.width*0.5, p.height*0.75, w, h);
 	  }
 
 	  p.image(img_edge, 0, 0, p.width, p.height);
+
+	  
   };
 };
 
