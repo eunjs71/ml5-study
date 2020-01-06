@@ -1,4 +1,7 @@
 let barSize = 18;
+let title_on = false;
+let leg_on = false;
+let happy_on = false;
 
 let sketch1 = function(p) {
   let cnv;
@@ -36,15 +39,12 @@ let sketch2 = function(p) {
   let txt_sticker;
 
   let btn_title;
-  let title_on = false;
   let img_title;
 
   let btn_leg;
-  let leg_on = false;
   let img_leg;
   
   let btn_happy;
-  let happy_on = false;
   let img_happy;
 
   let mv_imgs=[];
@@ -275,7 +275,7 @@ let sketch3 = function(p) {
     video = p.createCapture(p.VIDEO);
     	let vHeight = p.height;
     	let vWidth = video.width / video.height * p.height;
-	  video.size(vWidth, p.height);
+	  //video.size(vWidth, p.height);
 	  //video.size(vWidth, vHeight);
 
 	  // Create a new poseNet method with a single detection
