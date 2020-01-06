@@ -343,7 +343,7 @@ let sketch3 = function(p) {
 
 	    
 	  }
-	  p.imageMode(CORNER);
+	  p.imageMode(p.CORNER);
 	  p.image(img_edge, 0, 0, p.width, p.height);
   };
 };
