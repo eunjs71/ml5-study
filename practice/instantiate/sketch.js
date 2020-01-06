@@ -197,7 +197,7 @@ let sketch2 = function(p) {
 		    if(happy_on && i==0){
 		    	let w = distance * 12;
 		    	let h = w * img_happy.height / img_happy.width;
-		    	p.image(p.CENTER);
+		    	p.imageMode(p.CENTER);
 	  			p.image(img_happy, 0, -distance*4, w, h);
 	  		}
 
