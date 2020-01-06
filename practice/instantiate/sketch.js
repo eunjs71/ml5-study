@@ -198,7 +198,7 @@ let sketch2 = function(p) {
 		    	let w = distance * 12;
 		    	let h = w * img_happy.height / img_happy.width;
 		    	p.image(p.CENTER);
-	  			p.image(img_happy, 0, distance*4, w, h);
+	  			p.image(img_happy, 0, -distance*4, w, h);
 	  		}
 
 		    p.pop();
