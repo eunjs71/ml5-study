@@ -371,6 +371,8 @@ let sketch3 = function(p) {
 
 	  
 	  if(leg_on){
+	  	let w = p.width * 0.75;
+	  	let h = w * img_title.height / img_title.width;
 	  	p.image(img_leg, 0, p.height*0.85, 98, 43);
 	  }
 
@@ -378,10 +380,11 @@ let sketch3 = function(p) {
 	  if(title_on){
 	  	p.imageMode(p.CENTER);
 	  	let w = p.width * 0.75;
-	  	let h = w * img_title.h / img_title.width;
+	  	let h = w * img_title.height / img_title.width;
 	  	p.image(img_title, p.width*0.5, p.height*0.75, w, h);
 	  }
 
+	  p.imageMode(p.CORNER);
 	  p.image(img_edge, 0, 0, p.width, p.height);
 
 	  
