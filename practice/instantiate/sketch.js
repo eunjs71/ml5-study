@@ -277,6 +277,7 @@ let sketch3 = function(p) {
 	let vRatio;
 	let screenRatio = 640/800;
 
+	/*
 	let btn_switch_cam;
 	let switchFlag = false;
 
@@ -288,6 +289,7 @@ let sketch3 = function(p) {
         }
      }
    };
+   */
 	
 	p.preload = function(){
 		img_edge = p.loadImage('edge.png');
@@ -319,11 +321,11 @@ let sketch3 = function(p) {
 	  // Hide the video element, and just show the canvas
 	  video.hide();
 
-	  btn_switch_cam = p.createButton('CAMERA SWITCH');
-  	btn_switch_cam.position(cnv.position().x + p.width/2, cnv.position().y + p.height + 75);
-  	btn_switch_cam.style('boader', '1px white');
-  	btn_switch_cam.style('background-color', 'black');
-  	btn_switch_cam.mousePressed(switchCamera);
+	//  btn_switch_cam = p.createButton('CAMERA SWITCH');
+  	//btn_switch_cam.position(cnv.position().x + p.width/2, cnv.position().y + p.height + 75);
+  	//btn_switch_cam.style('boader', '1px white');
+  	//btn_switch_cam.style('background-color', 'black');
+  	//btn_switch_cam.mousePressed(switchCamera);
   };
 
 	function switchCamera()
@@ -446,7 +448,7 @@ let sketch3 = function(p) {
 
 	  p.imageMode(p.CORNER);
 	  p.image(img_edge, 0, 0, p.width, p.height);
-	  btn_switch_cam.position(cnv.position().x + p.width/2, cnv.position().y + p.height + 75);
+	  //btn_switch_cam.position(cnv.position().x + p.width/2, cnv.position().y + p.height + 75);
 	  
   };
 };
