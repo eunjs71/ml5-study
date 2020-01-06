@@ -134,7 +134,7 @@ let sketch2 = function(p) {
   p.draw = function() {
     p.background(0);
     p.fill(0);
-    p.stroke(255);
+    p.noStroke();
     p.rect(0, 0, p.width, p.height, 6);
 
     //p.rect(30, 30, 360, 300, 6);
