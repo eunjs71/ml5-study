@@ -89,7 +89,8 @@ let sketch3 = function(p) {
 	  p.imageMode(p.CENTER);
 
 	  if (poses.length > 0) {
-	  	poses.forEach(function(pose){
+	  	poses.forEach(function(poseElement){
+	  		let pose = poseElement.pose
 	  		let rightEye = pose['rightEye'];
 		    //image(rightEyeImage, rightEye.x, rightEye.y, 60, 60);
 		    let x1 = rightEye.x;
