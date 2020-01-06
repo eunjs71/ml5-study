@@ -308,12 +308,19 @@ let sketch3 = function(p) {
     p.textAlign(p.CENTER, p.CENTER);
     p.text("LOADING...", p.width/2, p.height/2);
 
+    let facingMode;
+    if(p.displayHeight > p.displayWidth){
+    	facingMode = {exact: "environment"}
+    }else{
+    	facingMode = "user"
+    }
+
     let constraints = {
 	    audio: false,
 	    video: {
 	      //facingMode: "user"
 	      facingMode: {
-	        exact: "environment"
+	        facingMode
 	      }
 	    }
 	  };
