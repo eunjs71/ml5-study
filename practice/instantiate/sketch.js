@@ -62,7 +62,7 @@ let sketch2 = function(p) {
 
 	p.preload = function() {
 		let sampleNum = parseInt(p.random(7));
-		mv_img = p.loadImage('mv_sample' + sampleNum + '.jpg', imageReady);
+		mv_img = p.loadImage('assets/mv_sample' + sampleNum + '.jpg', imageReady);
 		img_edge = p.loadImage('edge.png');
 		img_title = p.loadImage('parasite_title.png');
 		img_leg = p.loadImage('leg.png');
@@ -275,10 +275,10 @@ let sketch3 = function(p) {
 	let screenRatio = 640 / 800;
 
 	p.preload = function() {
-		img_edge = p.loadImage('edge.png');
-		img_title = p.loadImage('parasite_title.png');
-		img_leg = p.loadImage('leg.png');
-		img_happy = p.loadImage('happy.png');
+		img_edge = p.loadImage('assets/edge.png');
+		img_title = p.loadImage('assets/parasite_title.png');
+		img_leg = p.loadImage('assets/leg.png');
+		img_happy = p.loadImage('assets/happy.png');
 	}
 
 	p.setup = function() {
@@ -291,7 +291,7 @@ let sketch3 = function(p) {
 		p.text("LOADING...", p.width / 2, p.height / 2);
 
 		let facingMode;
-		
+
 		if (p.height > p.width) {
 			facingMode = {
 				exact: "environment"
