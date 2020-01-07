@@ -56,6 +56,8 @@ let sketch2 = function(p) {
 
 	let btn_change_img;
 
+	let txt_modelLoading;
+
   p.preload = function(){
 	let sampleNum = parseInt(p.random(7));
   	mv_img = p.loadImage('mv_sample' + sampleNum + '.jpg', imageReady);
@@ -79,9 +81,11 @@ let sketch2 = function(p) {
 	function modelReady() {
 	    poseNet.multiPose(mv_img)
 	    console.log("Model Ready.")
+	    txt_modelLoading.html('')
 	}
 
 	function sampleImageChange(){
+		txt_modelLoading.html('LOADING...')
 		poses = [];
 		let sampleNum = parseInt(p.random(7));
   	mv_img = p.loadImage('mv_sample' + sampleNum + '.jpg', imageReady);
@@ -127,6 +131,9 @@ let sketch2 = function(p) {
   	btn_change_img.style('boader', '1px white');
   	btn_change_img.style('background-color', 'black');
   	btn_change_img.mousePressed(sampleImageChange);
+
+  	txt_modelLoading = p.createP('LOADING...');
+  	txt_modelLoading.position(cnv.position().x + 375+40, cnv.position().y + 120);
 
 
   };
@@ -282,6 +289,8 @@ let sketch3 = function(p) {
 
 	let vRatio;
 	let screenRatio = 640/800;
+
+
 
 	/*
 	let btn_switch_cam;
