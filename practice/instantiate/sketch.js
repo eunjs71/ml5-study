@@ -90,7 +90,7 @@ let sketch2 = function(p) {
 		txt_modelLoading.html('LOADING...')
 		poses = [];
 		let sampleNum = parseInt(p.random(7));
-		mv_img = p.loadImage('mv_sample' + sampleNum + '.jpg', imageReady);
+		mv_img = p.loadImage('assets/mv_sample' + sampleNum + '.jpg', imageReady);
 	}
 
 	p.setup = function() {
