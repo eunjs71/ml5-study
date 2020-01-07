@@ -63,10 +63,10 @@ let sketch2 = function(p) {
 	p.preload = function() {
 		let sampleNum = parseInt(p.random(7));
 		mv_img = p.loadImage('assets/mv_sample' + sampleNum + '.jpg', imageReady);
-		img_edge = p.loadImage('edge.png');
-		img_title = p.loadImage('parasite_title.png');
-		img_leg = p.loadImage('leg.png');
-		img_happy = p.loadImage('happy.png');
+		img_edge = p.loadImage('assets/edge.png');
+		img_title = p.loadImage('assets/parasite_title.png');
+		img_leg = p.loadImage('assets/leg.png');
+		img_happy = p.loadImage('assets/happy.png');
 	}
 
 	function imageReady() {
